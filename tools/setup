@@ -1,0 +1,26 @@
+#! /bin/bash
+
+sudo ip link add s1-eth2 type veth peer name s2-eth1
+sudo ip link add s2-eth2 type veth peer name s3-eth1
+sudo ip link add s3-eth2 type veth peer name s4-eth1
+sudo ip link add s4-eth2 type veth peer name s5-eth1
+sudo ip link add s5-eth2 type veth peer name s6-eth1
+sudo ip link add s6-eth2 type veth peer name s7-eth1
+sudo ip link add s7-eth2 type veth peer name s8-eth1
+
+# ifconfig eth0 promisc
+sudo ifconfig s1-eth2 up promisc
+sudo ifconfig s2-eth2 up promisc
+sudo ifconfig s3-eth2 up promisc
+sudo ifconfig s4-eth2 up promisc
+sudo ifconfig s5-eth2 up promisc
+sudo ifconfig s6-eth2 up promisc
+sudo ifconfig s7-eth2 up promisc
+
+sudo ifconfig s2-eth1 up promisc
+sudo ifconfig s3-eth1 up promisc
+sudo ifconfig s4-eth1 up promisc
+sudo ifconfig s5-eth1 up promisc
+sudo ifconfig s6-eth1 up promisc
+sudo ifconfig s7-eth1 up promisc
+sudo ifconfig s8-eth1 up promisc
