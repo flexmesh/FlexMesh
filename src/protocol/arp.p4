@@ -23,5 +23,6 @@ parser parse_arp {
 	return ingress;
 }
 
+#define CASE_PARSE_ARP 0x0806 : parse_arp;
 
 #undef

@@ -17,4 +17,6 @@ parser parse_sctp {
 	return ingress;
 }
 
+#define CASE_PARSE_SCTP
+
 #endif

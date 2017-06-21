@@ -10,14 +10,14 @@
 
 control ingress {
 #if ENABLE_INITIALIZER == 1
-    CHECK(1) {
+    INGRESS_CHECK(0x1) {
         pipeline_start();
     }
 #endif
 
 #if INGRESS_MODULE_NUM > 1
 #ifdef MODULE_1
-    CHECK(2) {
+    INGRESS_CHECK(0x2) {
         MODULE_1;
     }
 #endif
@@ -26,7 +26,7 @@ control ingress {
 
 #if INGRESS_MODULE_NUM > 2
 #ifdef MODULE_2
-    CHECK(4) {
+    INGRESS_CHECK(0x4) {
         MODULE_2;
     }
 #endif
@@ -35,7 +35,7 @@ control ingress {
 
 #if INGRESS_MODULE_NUM > 3
 #ifdef MODULE_3
-    CHECK(0x10) {
+    INGRESS_CHECK(0x8) {
         MODULE_3;
     }
 #endif
@@ -44,7 +44,7 @@ control ingress {
 
 #if INGRESS_MODULE_NUM > 4
 #ifdef MODULE_4
-    CHECK(0x20) {
+    INGRESS_CHECK(0x10) {
         MODULE_4;
     }
 #endif
@@ -52,7 +52,7 @@ control ingress {
 
 #if INGRESS_MODULE_NUM > 5
 #ifdef MODULE_5
-    CHECK(0x40) {
+    INGRESS_CHECK(0x20) {
         MODULE_5;
     }
 #endif
@@ -61,7 +61,7 @@ control ingress {
 
 #if INGRESS_MODULE_NUM > 6
 #ifdef MODULE_6
-    CHECK(0x80) {
+    INGRESS_CHECK(0x40) {
         MODULE_6;
     }
 #endif
@@ -70,7 +70,7 @@ control ingress {
 
 #if INGRESS_MODULE_NUM > 7
 #ifdef MODULE_7
-    CHECK(7) {
+    INGRESS_CHECK(0x80) {
         MODULE_7;
     }
 #endif
@@ -79,7 +79,7 @@ control ingress {
 
 #if INGRESS_MODULE_NUM > 8
 #ifdef MODULE_8
-    CHECK(8) {
+    INGRESS_CHECK(0x100) {
         MODULE_8;
     }
 #endif
@@ -88,7 +88,7 @@ control ingress {
 
 #if INGRESS_MODULE_NUM > 9
 #ifdef MODULE_9
-    CHECK(9) {
+    INGRESS_CHECK(0x200) {
         MODULE_9;
     }
 #endif
@@ -97,7 +97,7 @@ control ingress {
 
 #if INGRESS_MODULE_NUM > 10
 #ifdef MODULE_10
-    CHECK(10) {
+    INGRESS_CHECK(0x400) {
         MODULE_10;
     }
 #endif
@@ -106,7 +106,7 @@ control ingress {
 
 #if INGRESS_MODULE_NUM > 11
 #ifdef MODULE_11
-    CHECK(11) {
+    INGRESS_CHECK(0x800) {
         MODULE_11;
     }
 #endif
@@ -115,7 +115,7 @@ control ingress {
 
 #if INGRESS_MODULE_NUM > 12
 #ifdef MODULE_12
-    CHECK(12) {
+    INGRESS_CHECK(0x1000) {
         MODULE_12;
     }
 #endif
@@ -123,7 +123,7 @@ control ingress {
 
 #if INGRESS_MODULE_NUM > 13
 #ifdef MODULE_13
-    CHECK(13) {
+    INGRESS_CHECK(0x2000) {
         MODULE_13;
     }
 #endif
@@ -131,149 +131,14 @@ control ingress {
 
 #if INGRESS_MODULE_NUM > 14
 #ifdef MODULE_14
-    CHECK(14) {
+    INGRESS_CHECK(0x4000) {
         (MODULE_14);
     }
 #endif
 #endif
 
-#if INGRESS_MODULE_NUM > 15
-#ifdef MODULE_15
-    CHECK(15) {
-        MODULE_15;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 16
-#ifdef MODULE_16
-    CHECK(16) {
-        MODULE_16;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 17
-#ifdef MODULE_17
-    CHECK(17) {
-        MODULE_17;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 18
-#ifdef MODULE_18
-    CHECK(18) {
-        MODULE_18;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 19
-#ifdef MODULE_19
-    CHECK(19) {
-        MODULE_19;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 20
-#ifdef MODULE_20
-    CHECK(20) {
-        MODULE_20;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 21
-#ifdef MODULE_21
-    CHECK(21) {
-        MODULE_21;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 22
-#ifdef MODULE_22
-    CHECK(22) {
-        MODULE_22;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 23
-#ifdef MODULE_23
-    CHECK(23) {
-        MODULE_23;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 24
-#ifdef MODULE_24
-    CHECK(24) {
-        MODULE_24;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 25
-#ifdef MODULE_25
-    CHECK(25) {
-        MODULE_25;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 26
-#ifdef MODULE_26
-    CHECK(26) {
-        MODULE_26;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 27
-#ifdef MODULE_27
-    CHECK(27) {
-        MODULE_27;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 28
-#ifdef MODULE_28
-    CHECK(28) {
-        MODULE_28;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 29
-#ifdef MODULE_29
-    CHECK(29) {
-        MODULE_29;
-    }
-#endif
-#endif
-
-#if INGRESS_MODULE_NUM > 30
-#ifdef MODULE_30
-    CHECK(30) {
-        MODULE_30;
-    }
-#endif
-#endif
-
-// #if INGRESS_MODULE_NUM > 31
-// #ifdef MODULE_31
-//     CHECK(31) {
-//         MODULE_31;
-//     }
-// #endif
-// #endif
 #if ENABLE_REWINDER == 1
-    CHECK(31){
+    INGRESS_CHECK(0x8000){
         pipeline_rewind();
     }
 #endif

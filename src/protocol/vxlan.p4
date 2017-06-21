@@ -14,6 +14,9 @@ header vxlan_t vxlan;
 
 parser parse_vxlan {
     extract(vxlan);
+#ifdef TUNNEL_METADATA
+    set_metadata(tunnel_metadata.ingress_tunnel_type, TUNNEL_VXLAN);
+#endif
     return parse_inner_ethernet;
 }
 

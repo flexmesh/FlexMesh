@@ -31,12 +31,13 @@ header ethernet_t ethernet;
 
 parser parse_ethernet {
     extract(ethernet);
-
     return select(ethernet.eth_type) {
         CASE_PARSE_VLAN
         CASE_PARSE_MPLS
         CASE_PARSE_IPv4
+        CASE_PARSE_ARP
         CASE_PARSE_IPv6
+        CASE_PARSE_PPPOE
         default : ingress;
     }
 }

@@ -23,12 +23,12 @@ metadata intrinsic_metadata_t intrinsic_metadata;
  * Metadata.
  */
 
-header_type click_metadata_t {
+header_type flex_metadata_t {
     fields {
-        click_bitmap  : 16; // Supprort 64 mododules now.
-        click_id      : 16; // Chain ID.
-        click_state   : 8 ; // Chain state.
-        click_input   : 8 ;
+        ingress_bitmap  : 16; // Supprort 64 mododules now.
+        egress_bitmap   : 16;
+        id      : 16; // Chain ID.
+        ingress_state   : 8 ; // Chain state.
     }
 }
 

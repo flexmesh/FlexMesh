@@ -25,7 +25,10 @@ parser parse_gre {
     set_metadata(tunnel_metadata.ingress_tunnel_type, TUNNEL_GRE);
 #endif
 
-    return inress;
+    return select(gre.proto) {
+        CASE_PARSE_NVGRE
+        default : parse_inner_ethernet;
+    }
 }
 
 #define CASE_PARSE_GRE  4754 : parse_gre; \
@@ -37,7 +40,7 @@ parser parse_gre {
  */
 header_type nvgre_t {
     fields {
-        tni : 24;
+        vsid : 24; // virtula sunet id
         flow_id : 8;
     }
 }
@@ -47,7 +50,12 @@ header nvgre_t nvgre;
 
 parser parse_nvgre {
     extract(nvgre);
-    return ingress;
+#ifdef TUNNEL_METADATA
+    set_metadata(tunnel_metadata.ingress_tunnel_type, TUNNEL_NVGRE);
+#endif
+    return parse_ingress_ethernet;
 }
+
+#define CASE_PARSE_NVGRE 0x6558 : parse_nvgre;
 
 #endif

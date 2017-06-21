@@ -39,6 +39,7 @@ parser parse_vlan {
     return select(vlan.eth_type) {
         CASE_PARSE_IPv4
         CASE_PARSE_IPv6
+        CASE_PARSE_ARP
         default : ingress;
     }
 }
