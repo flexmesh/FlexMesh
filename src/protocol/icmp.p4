@@ -16,4 +16,6 @@ parser parse_icmp {
 	return ingress;
 }
 
+#define CASE_PARSE_ICMP 1 : parse_icmp;
+
 #endif

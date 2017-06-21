@@ -1,6 +1,6 @@
 /**
  * P4 67
- * ClickP4 69
+ * Flex4 69
  * Modified 4
  */
 #define MODULE storm_control

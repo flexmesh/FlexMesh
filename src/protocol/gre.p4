@@ -18,6 +18,20 @@ header_type gre_t {
 
 header gre_t gre;
 
+parser parse_gre {
+    extract(gre);
+
+#ifdef TUNNEL_METADATA
+    set_metadata(tunnel_metadata.ingress_tunnel_type, TUNNEL_GRE);
+#endif
+
+    return inress;
+}
+
+#define CASE_PARSE_GRE  4754 : parse_gre; \
+                        4755 : parse_gre;
+
+
 /**
  * NVGRE header type.
  */
@@ -30,5 +44,10 @@ header_type nvgre_t {
 
 
 header nvgre_t nvgre;
+
+parser parse_nvgre {
+    extract(nvgre);
+    return ingress;
+}
 
 #endif

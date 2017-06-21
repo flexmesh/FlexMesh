@@ -1,5 +1,10 @@
 #ifndef __CLICK_CONTEXT_TUNNEL__
 #define __CLICK_CONTEXT_TUNNEL__
+
+#define TUNNEL_GRE   1
+#define TUNNEL_VXLAN 2
+#define TUNNEL_NXGRE 3
+
 /*
  * Tunnel metadata
  */

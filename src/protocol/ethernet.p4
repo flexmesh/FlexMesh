@@ -31,32 +31,28 @@ header ethernet_t ethernet;
 
 parser parse_ethernet {
     extract(ethernet);
+
     return select(ethernet.eth_type) {
-#ifdef IPv4_PROTO
-        ETH_TYPE_IPv4 : parse_ipv4;
-#endif
-
-#ifdef IPv6_PROTO
-        ETH_TYPE_IPv6 : parse_ipv6;
-#endif
-
-#ifdef VLAN_PROTO
-        ETH_TYPE_VLAN : parse_vlan;
-#endif
-
-#ifdef MPLS_PROTO
-		ETH_TYPE_MPLS : parse_mpls;
-#endif
-
-#ifdef ARP_PROTO
-        ETH_TYPE_ARP : parse_arp;
-#endif
-
-
+        CASE_PARSE_VLAN
+        CASE_PARSE_MPLS
+        CASE_PARSE_IPv4
+        CASE_PARSE_IPv6
         default : ingress;
     }
 }
 
-#define CHECK_ETH_TYPE(X) ethernet.eth_type == ETH_TYPE_##X
+
+header ethernet_t inner_ethernet;
+
+parser parse_inner_ethernet {
+    extract(inner_ethernet);
+    return select(ethernet.eth_type) {
+        CASE_PARSE_INNER_VLAN
+        CASE_PARSE_INNER_MPLS
+        CASE_PARSE_INNER_IPv4
+        CASE_PARSE_INNER_IPv6
+        default : ingress;
+    }
+}
 
 #endif

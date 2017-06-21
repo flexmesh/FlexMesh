@@ -1,6 +1,6 @@
-# Modules of ClickP4
+# Modules of Flex4
 
-We have developed tens of modules for ClickP4. Some of them are ported from the switch repository. Some of them are newly added by us. And some of them are ported from the switch repository of P4.
+We have developed tens of modules for Flex4. Some of them are ported from the switch repository. Some of them are newly added by us. And some of them are ported from the switch repository of P4.
 
 
 Tested modules :
@@ -85,7 +85,7 @@ Working on:
 
 ## Sample
 
-A sample module for ClickP4.
+A sample module for Flex4.
 
 ## L2 switch
 

@@ -1,6 +1,6 @@
 /**
  * P4 97
- * ClickP4 99
+ * Flex4 99
  * Modified 10
  */
 #define MODULE mac

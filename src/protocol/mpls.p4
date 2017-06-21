@@ -19,4 +19,7 @@ parser parse_mpls {
 	return ingress;
 }
 
+#define CASE_PARSE_MPLS 0x8847 : parse_mpls; \ 
+                        0x8848 : parse_mpls;
+
 #endif

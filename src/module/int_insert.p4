@@ -1,6 +1,6 @@
 /**
  * P4 92 
- * ClickP4 94
+ * Flex4 94
  * Modified 2
  */
 #define MODULE INT_INSERT

@@ -1,5 +1,5 @@
 /**
- * A sample module for ClickP4
+ * A sample module for Flex4
  */
 
 #ifndef MODULE

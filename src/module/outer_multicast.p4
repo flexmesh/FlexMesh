@@ -1,7 +1,7 @@
 /**
  * Outer multicast
  * P4      197
- * ClickP4 199
+ * Flex4 199
  * Modified 4
  */
 #define MODULE outer_multicast

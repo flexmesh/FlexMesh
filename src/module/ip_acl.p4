@@ -1,7 +1,7 @@
 /**
  * IP ACL
  * P4 73
- * ClickP4 75
+ * Flex4 75
  * Modified 11+1+1
  */
 #define MODULE ip_acl

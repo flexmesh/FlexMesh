@@ -1,6 +1,6 @@
 /**
  * P4 492
- * ClickP4 494
+ * Flex4 494
  * 2 + 
  */
 #define MODULE init_endpoint

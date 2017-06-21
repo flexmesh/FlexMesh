@@ -38,23 +38,28 @@ header ipv4_t ipv4;
 parser parse_ipv4 {
     extract(ipv4);
     return select(ipv4.proto) {
-#ifdef TCP_PROTO
-    IP_PROTO_TCP : parse_tcp;
-#endif
-
-#ifdef UDP_PROTO
-    IP_PROTO_UDP : parse_udp;
-#endif 
-
-#ifdef ICMP_PROTO
-    IP_PROTO_ICMP : parse_icmp;
-#endif 
-
+    CASE_PARSE_ICMP
+    CASE_PARSE_TCP
+    CASE_PARSE_UDP
     default : ingress;
     }
 }
 
+#define CASE_PARSE_IPv4 0x0800 : parse_ipv4;
 
-#define CHECK_IPv4_PROTO(X) ipv4.proto == IP_PROTO_##X
+header ipv4_t inner_ipv4;
+
+parser parse_inner_ipv4 {
+    extract(inner_ipv4);
+    return select(inner_ipv4.proto) {
+    CASE_PARSE_INNER_ICMP
+    CASE_PARSE_INNER_TCP
+    CASE_PARSE_INNER_UDP
+    default : ingress;
+    }
+}
+
+#define CASE_PARSE_INNER_IPv4 0x0800 : parse_inner_ipv4;
+
 
 #endif

@@ -1,6 +1,6 @@
 /**
  * P4 57
- * ClickP4 59
+ * Flex4 59
  * Modified 7
  */
 #define MODULE lag

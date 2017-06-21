@@ -1,6 +1,6 @@
 /**
  * P4 28 
- * ClickP4 30
+ * Flex4 30
  * Modified 3
  */
 #define MODULE spanning_tree

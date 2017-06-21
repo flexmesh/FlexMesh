@@ -33,16 +33,33 @@ header vlan_t vlan;
 
 parser parse_vlan {
     extract(vlan);
+#ifdef L2_METADATA
+    set_metadata(l2_metadata.eth_type, vlan.eth_type);
+#endif
     return select(vlan.eth_type) {
-#ifdef IPv4_PROTO
-        ETH_TYPE_IPv4 : parse_ipv4;
-#endif
-
-#ifdef IPv6_PROTO
-        ETH_TYPE_IPv6 : parse_ipv6;
-#endif
+        CASE_PARSE_IPv4
+        CASE_PARSE_IPv6
         default : ingress;
     }
 }
+
+
+#define CASE_PARSE_VLAN 0x8100 : parse_vlan;
+
+
+header vlan_t inner_vlan;
+
+parser parse_inner_vlan {
+    parse(inner_vlan);
+     return select(inner_vlan.eth_type) {
+        CASE_PARSE_IPv4
+        CASE_PARSE_IPv6
+        default : ingress;
+    }
+}
+
+
+#define CASE_PARSE_INNER_VLAN 0x8100 : parse_inner_vlan;
+
 
 #endif

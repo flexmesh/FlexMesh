@@ -28,4 +28,18 @@ parser parse_tcp {
     return ingress;
 }
 
+#define CASE_PARSE_TCP 6 : parse_tcp;
+
+
+
+header tcp_t inner_tcp;
+
+parser parse_tcp {
+    extract(inner_tcp);
+    return ingress;
+}
+
+#define CASE_PARSE_INNER_TCP 6 : parse_inner_tcp;
+
+
 #endif

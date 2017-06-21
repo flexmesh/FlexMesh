@@ -349,7 +349,7 @@ populate-exp4:
 	@cd $(SWITCH_DIR)&&./runtime_CLI <commands
 
 list:
-	@echo "ClickP4 Modules:"
+	@echo "Flex4 Modules:"
 	@cat config/modules
 	@echo
 
