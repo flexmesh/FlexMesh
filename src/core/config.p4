@@ -1,5 +1,5 @@
-#define INGRESS_MODULE_NUM 32
-#define EGRESS_MODULE_NUM 32
+#define INGRESS_MODULE_NUM 16
+#define EGRESS_MODULE_NUM 16
 
 
 #define REDUNDANT_NUM 0
@@ -15,3 +15,8 @@
 #define INIT_IPv6_MATCH
 // #define INIT_TCP_MATCH
 // #define INIT_UDP_MATCH
+
+
+
+#define TOFINO_TARGET 1
+#define TARGET 1

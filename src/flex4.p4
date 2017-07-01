@@ -1,3 +1,7 @@
+//-------------------------
+// Flex4 Main File
+//-------------------------
+
 #include "core/config.p4"
 #include "core/define.p4"
 #include "core/macro.p4"
@@ -8,7 +12,9 @@
 #include "core/rewind.p4"
 #include "core/module.p4"
 
+//-- Ingress pipeline
 control ingress {
+
 #if ENABLE_INITIALIZER == 1
     INGRESS_CHECK(0x1) {
         pipeline_start();
@@ -16,138 +22,275 @@ control ingress {
 #endif
 
 #if INGRESS_MODULE_NUM > 1
-#ifdef MODULE_1
+#ifdef INGRESS_MODULE_1
     INGRESS_CHECK(0x2) {
-        MODULE_1;
+        INGRESS_MODULE_1;
     }
 #endif
 #endif
 
 
 #if INGRESS_MODULE_NUM > 2
-#ifdef MODULE_2
+#ifdef INGRESS_MODULE_2
     INGRESS_CHECK(0x4) {
-        MODULE_2;
+        INGRESS_MODULE_2;
     }
 #endif
 #endif
 
 
 #if INGRESS_MODULE_NUM > 3
-#ifdef MODULE_3
+#ifdef INGRESS_MODULE_3
     INGRESS_CHECK(0x8) {
-        MODULE_3;
+        INGRESS_MODULE_3;
     }
 #endif
 #endif
 
 
 #if INGRESS_MODULE_NUM > 4
-#ifdef MODULE_4
+#ifdef INGRESS_MODULE_4
     INGRESS_CHECK(0x10) {
-        MODULE_4;
+        INGRESS_MODULE_4;
     }
 #endif
 #endif
 
 #if INGRESS_MODULE_NUM > 5
-#ifdef MODULE_5
+#ifdef INGRESS_MODULE_5
     INGRESS_CHECK(0x20) {
-        MODULE_5;
+        INGRESS_MODULE_5;
     }
 #endif
 #endif
 
 
 #if INGRESS_MODULE_NUM > 6
-#ifdef MODULE_6
+#ifdef INGRESS_MODULE_6
     INGRESS_CHECK(0x40) {
-        MODULE_6;
+        INGRESS_MODULE_6;
     }
 #endif
 #endif
 
 
 #if INGRESS_MODULE_NUM > 7
-#ifdef MODULE_7
+#ifdef INGRESS_MODULE_7
     INGRESS_CHECK(0x80) {
-        MODULE_7;
+        INGRESS_MODULE_7;
     }
 #endif
 #endif
 
 
 #if INGRESS_MODULE_NUM > 8
-#ifdef MODULE_8
+#ifdef INGRESS_MODULE_8
     INGRESS_CHECK(0x100) {
-        MODULE_8;
+        INGRESS_MODULE_8;
     }
 #endif
 #endif
 
 
 #if INGRESS_MODULE_NUM > 9
-#ifdef MODULE_9
+#ifdef INGRESS_MODULE_9
     INGRESS_CHECK(0x200) {
-        MODULE_9;
+        INGRESS_MODULE_9;
     }
 #endif
 #endif
 
 
 #if INGRESS_MODULE_NUM > 10
-#ifdef MODULE_10
+#ifdef INGRESS_MODULE_10
     INGRESS_CHECK(0x400) {
-        MODULE_10;
+        INGRESS_MODULE_10;
     }
 #endif
 #endif
 
 
 #if INGRESS_MODULE_NUM > 11
-#ifdef MODULE_11
+#ifdef INGRESS_MODULE_11
     INGRESS_CHECK(0x800) {
-        MODULE_11;
+        INGRESS_MODULE_11;
     }
 #endif
 #endif
 
 
 #if INGRESS_MODULE_NUM > 12
-#ifdef MODULE_12
+#ifdef INGRESS_MODULE_12
     INGRESS_CHECK(0x1000) {
-        MODULE_12;
+        INGRESS_MODULE_12;
     }
 #endif
 #endif
 
 #if INGRESS_MODULE_NUM > 13
-#ifdef MODULE_13
+#ifdef INGRESS_MODULE_13
     INGRESS_CHECK(0x2000) {
-        MODULE_13;
+        INGRESS_MODULE_13;
     }
 #endif
 #endif
 
 #if INGRESS_MODULE_NUM > 14
-#ifdef MODULE_14
+#ifdef INGRESS_MODULE_14
     INGRESS_CHECK(0x4000) {
-        (MODULE_14);
+        INGRESS_MODULE_14;
     }
 #endif
 #endif
 
-#if ENABLE_REWINDER == 1
-    INGRESS_CHECK(0x8000){
-        pipeline_rewind();
+#if INGRESS_MODULE_NUM > 15
+#ifdef INGRESS_MODULE_15
+    INGRESS_CHECK(0x8000) {
+        INGRESS_MODULE_15;
     }
+#endif
 #endif
 
 }
 
 control egress {
+#if EGRESS_MODULE_NUM > 1
+#ifdef ENGRESS_MODULE_1
+    EGRESS_CHECK(0x1) {
+        ENGRESS_MODULE_1;
+    }
+#endif
+#endif
 
+
+#if EGRESS_MODULE_NUM > 2
+#ifdef ENGRESS_MODULE_2
+    EGRESS_CHECK(0x2) {
+        ENGRESS_MODULE_2;
+    }
+#endif
+#endif
+
+
+#if EGRESS_MODULE_NUM > 3
+#ifdef ENGRESS_MODULE_3
+    EGRESS_CHECK(0x4) {
+        ENGRESS_MODULE_3;
+    }
+#endif
+#endif
+
+
+#if EGRESS_MODULE_NUM > 4
+#ifdef ENGRESS_MODULE_4
+    EGRESS_CHECK(0x8) {
+        ENGRESS_MODULE_4;
+    }
+#endif
+#endif
+
+#if EGRESS_MODULE_NUM > 5
+#ifdef ENGRESS_MODULE_5
+    EGRESS_CHECK(0x10) {
+        ENGRESS_MODULE_5;
+    }
+#endif
+#endif
+
+
+#if EGRESS_MODULE_NUM > 6
+#ifdef ENGRESS_MODULE_6
+    EGRESS_CHECK(0x20) {
+        ENGRESS_MODULE_6;
+    }
+#endif
+#endif
+
+
+#if EGRESS_MODULE_NUM > 7
+#ifdef ENGRESS_MODULE_7
+    EGRESS_CHECK(0x40) {
+        ENGRESS_MODULE_7;
+    }
+#endif
+#endif
+
+
+#if EGRESS_MODULE_NUM > 8
+#ifdef ENGRESS_MODULE_8
+    EGRESS_CHECK(0x80) {
+        ENGRESS_MODULE_8;
+    }
+#endif
+#endif
+
+
+#if EGRESS_MODULE_NUM > 9
+#ifdef ENGRESS_MODULE_9
+    EGRESS_CHECK(0x100) {
+        ENGRESS_MODULE_9;
+    }
+#endif
+#endif
+
+
+#if EGRESS_MODULE_NUM > 10
+#ifdef ENGRESS_MODULE_10
+    EGRESS_CHECK(0x200) {
+        ENGRESS_MODULE_10;
+    }
+#endif
+#endif
+
+
+#if EGRESS_MODULE_NUM > 11
+#ifdef ENGRESS_MODULE_11
+    EGRESS_CHECK(0x400) {
+        ENGRESS_MODULE_11;
+    }
+#endif
+#endif
+
+
+#if EGRESS_MODULE_NUM > 12
+#ifdef ENGRESS_MODULE_12
+    EGRESS_CHECK(0x800) {
+        ENGRESS_MODULE_12;
+    }
+#endif
+#endif
+
+#if EGRESS_MODULE_NUM > 13
+#ifdef ENGRESS_MODULE_13
+    EGRESS_CHECK(0x1000) {
+        ENGRESS_MODULE_13;
+    }
+#endif
+#endif
+
+#if EGRESS_MODULE_NUM > 14
+#ifdef ENGRESS_MODULE_14
+    EGRESS_CHECK(0x2000) {
+        ENGRESS_MODULE_14;
+    }
+#endif
+#endif
+
+#if EGRESS_MODULE_NUM > 15
+#ifdef ENGRESS_MODULE_15
+    EGRESS_CHECK(0x4000) {
+        ENGRESS_MODULE_15;
+    }
+#endif
+#endif
+
+#if ENABLE_REWINDER == 1
+    EGRESS_CHECK(0x8000){
+        pipeline_rewind();
+    }
+#endif
 }
+//
 // #if EGRESS_MODULE_NUM > 1
 // #ifdef MODULE_32
 //     CHECK(32) {

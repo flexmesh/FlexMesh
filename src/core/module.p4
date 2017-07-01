@@ -4,7 +4,7 @@
 #include "../module/l3_switch.p4"
 
 
-#define MODULE_1 module_l3_switch()
+#define INGRESS_MODULE_1 module_l3_switch()
 
 
 #endif

@@ -5,23 +5,33 @@ def parse_modules():
     module = open('src/core/module.p4', 'w')
     module.write('#ifndef __CLICK_MODULE__\n')
     module.write('#define __CLICK_MODULE__\n\n')
-    print('Compiling modules into Flex4:')
+    print 'Compiling modules into Flex4:'
     for m in config.readlines():
-        m = m.strip('\n')
+        m = m.strip('\n').split(':')[1]
         if not os.path.exists('src/module/%s.p4'%(m)):
             print 'Cannot find files of %s\n'%(m)
             exit(1)
         module.write('#include \"../module/%s.p4\"\n'%(m))
     i = 1
-
     module.write('\n\n');
 
     config.seek(0)
     for m in config:
-        m = m.strip('\n')
-        print('Module %d : %s'%(i, m))
-        module.write('#define MODULE_%d module_%s()\n'%(i, m))
-        i = i + 1
+        m = m.strip('\n').split(':')
+        if m[0] == 'ingress':
+            m = m[1]
+            print('Ingress Module %d : %s'%(i, m))
+            module.write('#define INGRESS_MODULE_%d module_%s()\n'%(i, m))
+            i = i + 1
+    i = 1
+    config.seek(0)
+    for m in config:
+        m = m.strip('\n').split(':')
+        if m[0] == 'egress':
+            m = m[1]
+            print('Egress Module %d : %s'%(i, m))
+            module.write('#define EGRESS_MODULE_%d module_%s()\n'%(i, m))
+            i = i + 1
 
     config.close()
 

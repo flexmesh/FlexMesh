@@ -37,7 +37,7 @@ metadata click_metadata_t click_metadata;
 /********************************************************************************
  *                      Intrinsic Metadata Definition for Tofino                *
  *******************************************************************************/
-
+#if TARGET == 1
 #ifndef _TOFINO_LIB_INTRINSIC_METADATA
 #define _TOFINO_LIB_INTRINSIC_METADATA 1
 
@@ -479,5 +479,5 @@ header_type egress_intrinsic_metadata_for_output_port_t {
 header egress_intrinsic_metadata_for_output_port_t eg_intr_md_for_oport;
 
 #endif
-
+#endif
 #endif
