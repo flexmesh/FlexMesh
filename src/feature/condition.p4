@@ -1,26 +1,20 @@
-#ifndef MODULE
-#define MODULE condition
-/**
- * Condition module
- * A module devised for switching module chains.
- */
-
-
+#ifndef CONDITION_FEATURE_MODULE
 /**
  * Condition module parameters.
  */
+
 #ifndef CONDITION_TABLE_SIZE
 #define CONDITION_TABLE_SIZE 512
 #endif
 
 action condition_branch(state, bitmap) {
-    SET_CLICK_STATE(state);
-    SET_CLICK_BITMAP(bitmap);
+    SET_FLEX_STATE(state);
+    SET_FLEX_INGRESS_BITMAP(bitmap);
 }
 
 table condition_table_1 {
     reads {
-        click_metadata.click_id : exact;
+        flex_metadata.click_id : exact;
         condition_metadata.condition : exact;
     }
     actions {
@@ -31,7 +25,7 @@ table condition_table_1 {
 
 table condition_table_2 {
     reads {
-        click_metadata.click_id : exact;
+        flex_metadata.click_id : exact;
         condition_metadata.condition : exact;
     }
     actions {
@@ -42,7 +36,7 @@ table condition_table_2 {
 
 table condition_table_3 {
     reads {
-        click_metadata.click_id : exact;
+        flex_metadata.click_id : exact;
         condition_metadata.condition : exact;
     }
     actions {
@@ -53,7 +47,7 @@ table condition_table_3 {
 
 table condition_table_4 {
     reads {
-        click_metadata.click_id : exact;
+        flex_metadata.click_id : exact;
         condition_metadata.condition : exact;
     }
     actions {
@@ -71,5 +65,4 @@ MODULE_INGRESS(condition) {
 }
 
 #undef CONDITION_TABLE_SIZE
-#undef MODULE
 #endif

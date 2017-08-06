@@ -1,5 +1,4 @@
 #ifndef IPv6_PROTO
-
 #define IPv6_PROTO
 
 header_type ipv6_t {
@@ -33,8 +32,7 @@ parser parse_ipv6 {
 
 header ipv6_t inner_ipv6;
 
-
-parser parse_ipv6 {
+parser parse_inner_ipv6 {
     extract(inner_ipv6);
     return select(inner_ipv6.next_hdr) {
         CASE_PARSE_INNER_TCP

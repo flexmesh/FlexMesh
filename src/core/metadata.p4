@@ -26,12 +26,13 @@ metadata intrinsic_metadata_t intrinsic_metadata;
 header_type flex_metadata_t {
     fields {
         ingress_bitmap  : 16; // Supprort 64 mododules now.
-        egress_bitmap   : 16;
-        id      : 16; // Chain ID.
+        egress_bitmap   : 16; 
+        id              : 16; // Chain ID.
         ingress_state   : 8 ; // Chain state.
+        egress_state    : 8 ; // Chain egress state.
     }
 }
 
-metadata click_metadata_t click_metadata;
+metadata flex_metadata_t flex_metadata;
 
 #endif

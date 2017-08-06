@@ -10,13 +10,13 @@
 #endif
 
 action if_branch(state, bitmap) {
-    SET_CLICK_STATE(state);
-    SET_CLICK_BITMAP(bitmap);
+    SET_FLEX_STATE(state);
+    SET_FLEX_INGRESS_BITMAP(bitmap);
 }
 
 table if_small {
     reads {
-        click_metadata.click_id : exact;
+        flex_metadata.click_id : exact;
     }
     actions {
          if_branch;
@@ -26,7 +26,7 @@ table if_small {
 
 table if_equal {
     reads {
-        click_metadata.click_id : exact;
+        flex_metadata.click_id : exact;
     }
     actions {
         if_branch;
@@ -36,7 +36,7 @@ table if_equal {
 
 table if_large {
     reads {
-        click_metadata.click_id : exact;
+        flex_metadata.click_id : exact;
     }
     actions {
          if_branch;

@@ -8,10 +8,10 @@ def parse_modules():
     print 'Compiling modules into Flex4:'
     for m in config.readlines():
         m = m.strip('\n').split(':')[1]
-        if not os.path.exists('src/module/%s.p4'%(m)):
+        if not os.path.exists('src/feature/%s.p4'%(m)):
             print 'Cannot find files of %s\n'%(m)
             exit(1)
-        module.write('#include \"../module/%s.p4\"\n'%(m))
+        module.write('#include \"../feature/%s.p4\"\n'%(m))
     i = 1
     module.write('\n\n');
 

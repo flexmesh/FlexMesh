@@ -15,9 +15,9 @@
 #ifndef FOR_FIELDS
 
 #define FOR_FIELDS          \
-            CLICK_ID;       \
-            CLICK_STATE;    \
-            CLICK_BITMAP;   \
+            FLEX_ID;       \
+            FLEX_STATE;    \
+            FLEX_INGRESS_BITMAP;   \
             for_metadata.i; \
             for_metadata.threshold;
 #endif
@@ -39,12 +39,12 @@ action for_init(threshold) {
 
 action for_loop(bitmap) {
     add_to_field(for_metadata.i, 1);
-    SET_CLICK_BITMAP(bitmap);
+    SET_FLEX_INGRESS_BITMAP(bitmap);
 }
 
 table for_init {
     reads {
-        CLICK_ID: exact;
+        FLEX_ID: exact;
     }
     actions {
         for_init;
@@ -54,7 +54,7 @@ table for_init {
 
 table for_loop {
     reads {
-        CLICK_ID: exact;
+        FLEX_ID: exact;
     }
     actions {
         for_loop;
@@ -64,7 +64,7 @@ table for_loop {
 
 table for_end {
     reads {
-        CLICK_ID: exact;
+        FLEX_ID: exact;
     }
     actions {
         loop_end;

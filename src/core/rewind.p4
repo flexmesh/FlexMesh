@@ -6,17 +6,16 @@
 #include "field_list.p4"
 
 action rewind (state, bitmap) {
-    SET_CLICK_STATE(state);
-    SET_CLICK_BITMAP(bitmap);
-    SET_CLICK_INPUT(0);
+    SET_FLEX_STATE(state);
+    SET_FLEX_INGRESS_BITMAP(bitmap);
     resubmit(reserve_fields);
 
 }
 
 table rewind_table {
     reads {
-        CLICK_ID : exact;
-        CLICK_STATE : exact;
+        FLEX_ID : exact;
+        FLEX_STATE : exact;
     }
     actions {
         rewind;
@@ -24,7 +23,7 @@ table rewind_table {
 }
 
 control pipeline_rewind {
-    if (CLICK_ID != 0) {
+    if (FLEX_ID != 0) {
         apply(rewind_table);
     }
 }

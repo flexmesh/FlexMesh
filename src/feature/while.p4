@@ -7,7 +7,7 @@ action set_threshold(threshold) {
 
 table while_init {
     reads {
-        click_metadata.click_id : exact;
+        flex_metadata.click_id : exact;
     }
     actions {
         set_threshold;
@@ -16,7 +16,7 @@ table while_init {
 
 table while_small {
     reads {
-        click_metadata.click_id : exact;
+        flex_metadata.click_id : exact;
     }
     actions {
          loop;
@@ -26,7 +26,7 @@ table while_small {
 
 table while_equal {
     reads {
-        click_metadata.click_id : exact;
+        flex_metadata.click_id : exact;
     }
     actions {
          loop;
@@ -36,7 +36,7 @@ table while_equal {
 
 table while_large {
     reads {
-        click_metadata.click_id : exact;
+        flex_metadata.click_id : exact;
     }
     actions {
          loop;

@@ -21,22 +21,22 @@ cd $SWITCH_DIR
 for i in `seq 1`
 do
 {
-    sudo ./simple_switch clickp4.json $INTF_1 $INTF_S1_2 $LOG --thrift-port 9090
+    sudo ./simple_switch flex4.json $INTF_1 $INTF_S1_2 $LOG --thrift-port 9090
 } &
 done
 
 for i in `seq 1`
 do
 {
-    sudo ./simple_switch clickp4.json $INTF_S2_1 $INTF_S2_2 $LOG --thrift-port 9091
+    sudo ./simple_switch flex4.json $INTF_S2_1 $INTF_S2_2 $LOG --thrift-port 9091
 } &
 done
 
 for i in `seq 1`
 do
 {
-    sudo ./simple_switch clickp4.json $INTF_S3_1 $INTF_S3_2 $LOG --thrift-port 9092
+    sudo ./simple_switch flex4.json $INTF_S3_1 $INTF_S3_2 $LOG --thrift-port 9092
 } &
 done
 
-sudo ./simple_switch clickp4.json $INTF_S4_1 $INTF_2 $LOG --thrift-port 9093
+sudo ./simple_switch flex4.json $INTF_S4_1 $INTF_2 $LOG --thrift-port 9093

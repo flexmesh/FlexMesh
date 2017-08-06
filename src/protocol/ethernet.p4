@@ -32,12 +32,27 @@ header ethernet_t ethernet;
 parser parse_ethernet {
     extract(ethernet);
     return select(ethernet.eth_type) {
+#ifdef CASE_PARSE_VLAN
         CASE_PARSE_VLAN
+#endif
+#ifdef CASE_PARSE_MPLS
         CASE_PARSE_MPLS
+#endif
+#ifdef CASE_PARSE_IPv4
         CASE_PARSE_IPv4
+#endif
+#ifdef CASE_PARSE_ARP
         CASE_PARSE_ARP
+#endif
+#ifdef CASE_PARSE_IPv6
         CASE_PARSE_IPv6
+#endif
+#ifdef CASE_PARSE_PPPOE
         CASE_PARSE_PPPOE
+#endif
+#ifdef CASE_PARSE_ROCE
+        CASE_PARSE_ROCE
+#endif
         default : ingress;
     }
 }
@@ -48,10 +63,18 @@ header ethernet_t inner_ethernet;
 parser parse_inner_ethernet {
     extract(inner_ethernet);
     return select(ethernet.eth_type) {
+#ifdef CASE_PARSE_INNER_VLAN
         CASE_PARSE_INNER_VLAN
+#endif
+#ifdef CASE_PARSE_INNER_MPLS
         CASE_PARSE_INNER_MPLS
+#endif
+#ifdef CASE_PARSE_INNER_IPv4
         CASE_PARSE_INNER_IPv4
+#endif
+#ifdef CASE_PARSE_INNER_IPv6
         CASE_PARSE_INNER_IPv6
+#endif
         default : ingress;
     }
 }

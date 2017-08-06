@@ -1,6 +1,6 @@
 #ifndef TCP_PROTO
-
 #define TCP_PROTO
+
 header_type tcp_t {
     fields {
         src_port : 16;
@@ -34,7 +34,7 @@ parser parse_tcp {
 
 header tcp_t inner_tcp;
 
-parser parse_tcp {
+parser parse_inner_tcp {
     extract(inner_tcp);
     return ingress;
 }

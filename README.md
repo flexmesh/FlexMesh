@@ -26,7 +26,7 @@ The [protocols](src/protocol) defines the network protocol used in Flex4.
 #### Install BMv2
 
 ```bash
-$ git clone https://github.com/clickp4/behavioral-model
+$ git clone https://github.com/flex4/behavioral-model
 $ cd <bmv2 folder>
 $ ./install_deps.sh
 $ ./autogen.sh
@@ -38,7 +38,7 @@ or in the Flex4 folder
 ```bash
 $ make install-bmv2
 ```
-Then you can have bmv2 in <clickp4 folder>/bmv2
+Then you can have bmv2 in <flex4 folder>/bmv2
 
 ## Tutorials
 
@@ -48,7 +48,7 @@ Please follow these steps to build run a Flex4 demo.
 
 1. Setup the virtual NICs and namespace.
 ```bash
-$ cd <clickp4 folder>
+$ cd <flex4 folder>
 $ make setup-veth
 ```
 
@@ -57,7 +57,7 @@ $ make setup-veth
 $ echo "l3_switch" >>config/modules
 $ make compile
 ```
-Then the P4 binary code "clickp4.json" is generated into the "build" folder.
+Then the P4 binary code "flex4.json" is generated into the "build" folder.
 
 3. Run Flex4 on BMv2
 Firstly, check whether the "SWITCH_DIR" parameter in Makefile is right or change it to the right director.(TODO: This can be automatically done.) 

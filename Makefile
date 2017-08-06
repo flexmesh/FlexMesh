@@ -12,18 +12,18 @@ COMMANDS=commands
 compile:
 	@mkdir -p build >>/dev/null
 	@python tools/parse_config.py
-	@p4c-bmv2 src/clickp4.p4 --json build/clickp4.json
+	@p4c-bmv2 src/flex4.p4 --json build/flex4.json
 
 run: compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cd $(SWITCH_DIR)&&sudo bash simple_switch clickp4.json $(INTF) $(LOG)
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG)
 	# -- --controller-ip=$(CONTROLLER_IP) --controller-port=$(CONTROLLER_PORT) 
 
 run-p1: 
 	@cp test/p1/modules config/modules
 	@make compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cd $(SWITCH_DIR)&&sudo bash simple_switch clickp4.json $(INTF) $(LOG)
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG)
 
 populate-p1:
 	@cp test/p1/commands $(SWITCH_DIR)
@@ -32,8 +32,8 @@ populate-p1:
 run-p2: 
 	@cp test/p2/modules config/modules
 	@make compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cd $(SWITCH_DIR)&&sudo bash simple_switch clickp4.json $(INTF) $(LOG)
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG)
 
 populate-p2:
 	@cp test/p2/commands $(SWITCH_DIR)
@@ -42,8 +42,8 @@ populate-p2:
 run-p3: 
 	@cp test/p3/modules config/modules
 	@make compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cd $(SWITCH_DIR)&&sudo bash simple_switch clickp4.json $(INTF) $(LOG)
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG)
 
 populate-p3:
 	@cp test/p3/commands $(SWITCH_DIR)
@@ -52,8 +52,8 @@ populate-p3:
 run-p4: 
 	@cp test/p4/modules config/modules
 	@make compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cd $(SWITCH_DIR)&&sudo bash simple_switch clickp4.json $(INTF) $(LOG)
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG)
 
 populate-p4:
 	@cp test/p4/commands $(SWITCH_DIR)
@@ -62,8 +62,8 @@ populate-p4:
 run-p5: 
 	@cp test/p5/modules config/modules
 	@make compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cd $(SWITCH_DIR)&&sudo bash simple_switch clickp4.json $(INTF) $(LOG)
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG)
 
 populate-p5:
 	@cp test/p5/commands $(SWITCH_DIR)
@@ -72,8 +72,8 @@ populate-p5:
 run-p6: 
 	@cp test/p6/modules config/modules
 	@make compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cd $(SWITCH_DIR)&&sudo bash simple_switch clickp4.json $(INTF) $(LOG)
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG)
 
 populate-p6:
 	@cp test/p6/commands $(SWITCH_DIR)
@@ -82,8 +82,8 @@ populate-p6:
 run-p7: 
 	@cp test/p7/modules config/modules
 	@make compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cd $(SWITCH_DIR)&&sudo bash simple_switch clickp4.json $(INTF) $(LOG)
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG)
 
 populate-p7:
 	@cp test/p7/commands $(SWITCH_DIR)
@@ -94,8 +94,8 @@ populate-l3:
 	@cp test/l3_switch/commands $(SWITCH_DIR)
 	@cp test/l3_switch/modules config/modules
 	@make compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cd $(SWITCH_DIR)&&sudo bash simple_switch clickp4.json $(INTF) $(LOG) 
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG) 
 	# -- --controller-ip=$(CONTROLLER_IP) --controller-port=$(CONTROLLER_PORT) 
 
 
@@ -133,60 +133,60 @@ run-exp1:
 	@cp test/l3_switch/commands $(SWITCH_DIR)
 	@cp test/l3_switch/modules config/modules
 	@make compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cd $(SWITCH_DIR)&&sudo bash simple_switch clickp4.json $(INTF) $(LOG) 
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG) 
 	# -- --controller-ip=$(CONTROLLER_IP) --controller-port=$(CONTROLLER_PORT) 
 
 run-exp2:
 	@cp test/chain0/commands $(SWITCH_DIR)
 	@cp test/chain0/modules config/modules
 	@make compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cd $(SWITCH_DIR)&&sudo bash simple_switch clickp4.json $(INTF) $(LOG) 
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG) 
 	# -- --controller-ip=$(CONTROLLER_IP) --controller-port=$(CONTROLLER_PORT) 
 
 run-exp3:
 	@cp test/chain1/commands $(SWITCH_DIR)
 	@cp test/chain1/modules config/modules
 	@make compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cd $(SWITCH_DIR)&&sudo bash simple_switch clickp4.json $(INTF) $(LOG) 
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG) 
 	# -- --controller-ip=$(CONTROLLER_IP) --controller-port=$(CONTROLLER_PORT) 
 
 run-exp4:
 	@cp test/chain4/commands $(SWITCH_DIR)
 	@cp test/chain4/modules config/modules
 	@make compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cd $(SWITCH_DIR)&&sudo bash simple_switch clickp4.json $(INTF) $(LOG) 
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG) 
 	# -- --controller-ip=$(CONTROLLER_IP) --controller-port=$(CONTROLLER_PORT) 
 
 run-linear2: compile
-	@cp build/clickp4.json $(SWITCH_DIR)
+	@cp build/flex4.json $(SWITCH_DIR)
 	@cd tools&&bash linear-2.sh
 
 run-linear3: compile
-	@cp build/clickp4.json $(SWITCH_DIR)
+	@cp build/flex4.json $(SWITCH_DIR)
 	@cd tools&&bash linear-3.sh
 
 run-linear4: compile
-	@cp build/clickp4.json $(SWITCH_DIR)
+	@cp build/flex4.json $(SWITCH_DIR)
 	@cd tools&&bash linear-4.sh
 
 run-linear5: compile
-	@cp build/clickp4.json $(SWITCH_DIR)
+	@cp build/flex4.json $(SWITCH_DIR)
 	@cd tools&&bash linear-5.sh
 
 run-linear6: compile
-	@cp build/clickp4.json $(SWITCH_DIR)
+	@cp build/flex4.json $(SWITCH_DIR)
 	@cd tools&&bash linear-6.sh
 
 run-linear7: compile
-	@cp build/clickp4.json $(SWITCH_DIR)
+	@cp build/flex4.json $(SWITCH_DIR)
 	@cd tools&&bash linear-7.sh
 
 run-linear8: compile
-	@cp build/clickp4.json $(SWITCH_DIR)
+	@cp build/flex4.json $(SWITCH_DIR)
 	@cd tools&&bash linear-8.sh
 
 populate-linear2:
@@ -248,8 +248,8 @@ populate-linear8:
 run-fattree:
 	@cp test/fattree/modules config/modules
 	@make compile
-	@cp build/clickp4.json $(SWITCH_DIR)
-	@cp build/clickp4.json $(SWITCH_DBG_DIR)
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cp build/flex4.json $(SWITCH_DBG_DIR)
 	@cd tools&&sudo bash fat-tree.sh
 
 populate-fattree:

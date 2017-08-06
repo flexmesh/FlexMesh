@@ -38,9 +38,15 @@ header ipv4_t ipv4;
 parser parse_ipv4 {
     extract(ipv4);
     return select(ipv4.proto) {
+#ifdef CASE_PARSE_ICMP
     CASE_PARSE_ICMP
+#endif
+#ifdef CASE_PARSE_TCP
     CASE_PARSE_TCP
+#endif
+#ifndef CASE_PARSE_UDP
     CASE_PARSE_UDP
+#endif
     default : ingress;
     }
 }
@@ -52,9 +58,15 @@ header ipv4_t inner_ipv4;
 parser parse_inner_ipv4 {
     extract(inner_ipv4);
     return select(inner_ipv4.proto) {
+#ifdef CASE_PARSE_INNER_ICMP
     CASE_PARSE_INNER_ICMP
+#endif
+#ifdef CASE_PARSE_INNER_TCP
     CASE_PARSE_INNER_TCP
+#endif
+#ifdef CASE_PARSE_INNER_UDP
     CASE_PARSE_INNER_UDP
+#endif
     default : ingress;
     }
 }

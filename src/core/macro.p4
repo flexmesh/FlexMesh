@@ -1,21 +1,24 @@
 #ifndef __CLICK_WRAPPER__
 #define __CLICK_WRAPPER__
 
-#define CLICK_BITMAP click_metadata.click_bitmap
-#define CLICK_ID     click_metadata.click_id
-#define CLICK_STATE  click_metadata.click_state
-#define CLICK_INPUT  click_metadata.click_input
+#define FLEX_INGRESS_BITMAP flex_metadata.ingress_bitmap
+#define FLEX_EGRESS_BITMAP  flex_metadata.egress_bitmap
+#define FLEX_ID     flex_metadata.id
+#define FLEX_STATE  flex_metadata.ingress_state
 
-#define SET_CLICK_BITMAP(X) modify_field(CLICK_BITMAP, (X))
-#define SET_CLICK_ID(X) modify_field(CLICK_ID, (X))
-#define SET_CLICK_STATE(X) modify_field(CLICK_STATE, (X))
-#define SET_CLICK_INPUT(X) modify_field(CLICK_INPUT, (X))
+#define SET_FLEX_INGRESS_BITMAP(X) modify_field(FLEX_INGRESS_BITMAP, (X))
+#define SET_FLEX_ID(X) modify_field(FLEX_ID, (X))
+#define SET_FLEX_STATE(X) modify_field(FLEX_STATE, (X))
+#define SET_FLEX_INPUT(X) modify_field(FLEX_INPUT, (X))
 
 /**
  * Check condition.
  */
 //#define CHECK(X) if(( CLICK_BITMAP & (X)) == 0)
 #define CHECK(X)
+
+#define INGRESS_CHECK(X) if(( FLEX_INGRESS_BITMAP & (X)) == 0)
+#define EGRESS_CHECK(X) if(( FLEX_EGRESS_BITMAP & (X)) == 0)
 
 
 #define MODULE_INGRESS(M) control module_##M

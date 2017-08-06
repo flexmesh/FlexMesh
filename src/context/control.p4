@@ -38,15 +38,14 @@ header_type condition_metadata_t {
 metadata condition_metadata_t condition_metadata; 
 
 action loop(bitmap) {
-    SET_CLICK_STATE(0);
-    SET_CLICK_BITMAP(bitmap);
-    SET_CLICK_INPUT(0);
+    SET_FLEX_STATE(0);
+    SET_FLEX_INGRESS_BITMAP(bitmap);
     resubmit(reserve_fields);
 }
 
 action loop_end(state, bitmap) {
-    SET_CLICK_STATE(state);
-    SET_CLICK_BITMAP(bitmap);
+    SET_FLEX_STATE(state);
+    SET_FLEX_INGRESS_BITMAP(bitmap);
 }
 
 
