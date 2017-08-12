@@ -5,3 +5,4 @@ sudo ip link del veth4
 
 sudo ip netns del h1
 sudo ip netns del h2
+

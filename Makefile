@@ -383,3 +383,5 @@ clear-veth:
 nic-offload:
 	@bash tools/disable_nic_offload.sh
 
+clear-demo:
+	@bash tools/demo-clear.sh
