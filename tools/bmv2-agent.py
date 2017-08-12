@@ -17,9 +17,9 @@ protoMap = {
 
 featureMap = {
     'clickp4_mac_learning' : 1,
-    'clickp4_ip_sg' : 2
-    'clickp4_l2_sw' : 3,
-    'clickp4_l3_sw' : 4,
+    'clickp4_ip_sg' : 2,
+    'clickp4_l2_switch' : 3,
+    'clickp4_l3_switch' : 4,
     'clickp4_vlan'  : 5,
     'clickp4_qos'   : 6,
     'clickp4_nat'   : 7,
@@ -30,7 +30,7 @@ policies = {}
 
 policy_id = 0
 
-device_dir='/home/ubuntu/Work/behavioral-model/targets/simple_switch'
+device_dir='/home/netarchlab/behavioral-model/targets/simple_switch'
 
 
 class MainHandler(tornado.web.RequestHandler):
@@ -67,14 +67,14 @@ def execute_policy(policy):
     global policy_id, policies
     
     policy_id = policy_id + 1
-    policies[policy] = policy_id
+    # policies[policy] = policy_id
     bitmaps = []
     bitmap = 0
     pre = 0
     for feature in policy['chain']:
         n = featureMap[feature]
         if n < 1:
-            print '%s is not a supported feature.'%feature
+            print 'Error: %s is not a supported feature.'%feature
             return
         if pre < n:
             pre = n
@@ -82,9 +82,9 @@ def execute_policy(policy):
         else:
             pre = 0
             bitmaps.append(bitmap)
-            bitmap = 0
+            bitmap = 1 << n
     bitmaps.append(bitmap)
-
+    print bitmaps
     for i in range(len(bitmaps) - 1):
         bitmaps[i] = bitmaps[i] + (1 << 15)
 
@@ -97,16 +97,18 @@ def execute_policy(policy):
         policy_id, 
         bitmaps[0])
     
-    install_rule(policy['device'], rule)
+    install_rule(policy['Device'], rule)
     counter = 0
     for b in bitmaps[1:]:
         rule = 'table_add rewind_table rewind %d %d => %d %d' % (policy_id, counter, counter + 1, b)
-        install_rule(policy['device'], rule)
+        install_rule(policy['Device'], rule)
 
 def install_rule(device, rule):
     port = devicePortMap[device]
-    os.popen('cd %s && echo %s >tmp_commands'%(device_dir, rule) )
-    os.popen('cd %s && ./runtime_CLI --thrift-port %d <tmp_commands'%(device_dir, port))
+    # print rule
+    os.system('cd %s && echo "%s" >tmp_commands'%(device_dir, rule))
+    # os.system('cd %s && cat tmp_commands'%device_dir)
+    os.system('cd %s && ./runtime_CLI --thrift-port %d <tmp_commands'%(device_dir, port))
 
 
 if __name__ == "__main__":

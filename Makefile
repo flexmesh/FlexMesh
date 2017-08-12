@@ -1,5 +1,5 @@
-SWITCH_DIR=/home/ubuntu/Work/behavioral-model/targets/simple_switch
-SWITCH_DBG_DIR=/home/ubuntu/Work/behavioral-model/targets/simple_switch
+SWITCH_DIR=/home/netarchlab/behavioral-model/targets/simple_switch
+SWITCH_DBG_DIR=/home/netarchlab/behavioral-model/targets/simple_switch
 CONTROLLER_DIR=/home/ubuntu/odb/router
 CONTROLLER_IP=101.6.30.157
 CONTROLLER_PORT=40123

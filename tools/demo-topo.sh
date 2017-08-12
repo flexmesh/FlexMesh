@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SWITCH_DIR=/home/ubuntu/Work/behavioral-model/targets/simple_switch
+SWITCH_DIR=/home/netarchlab/behavioral-model/targets/simple_switch
 
 INTF_S1_1='-i 1@e1_1'
 INTF_S1_2='-i 2@e1_2'
