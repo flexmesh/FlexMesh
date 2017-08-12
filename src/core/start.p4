@@ -53,11 +53,11 @@ action act_set_bitmap(bitmap) {
 
 table tbl_pipeline_start {
     reads {
-        INIT_MATCH
-        INIT_ETH_MATCH
-        INIT_IPv4_MATCH
-        INIT_TCP_MATCH
-        INIT_UDP_MATCH
+        ipv4.dst_addr : exact;
+        ipv4.src_addr : exact;
+        l4_metadata.l4_type : exact;
+        l4_metadata.dst_port : exact;
+        l4_metadata.src_port : exact;
     }
     
     actions {
