@@ -1,6 +1,6 @@
-SWITCH_DIR=/home/netarchlab/bmv2/targets/simple_switch
-SWITCH_DBG_DIR=/home/netarchlab/bmv2-debug/targets/simple_switch
-CONTROLLER_DIR=/home/netarchlab/odb/router
+SWITCH_DIR=/home/ubuntu/Work/behavioral-model/targets/simple_switch
+SWITCH_DBG_DIR=/home/ubuntu/Work/behavioral-model/targets/simple_switch
+CONTROLLER_DIR=/home/ubuntu/odb/router
 CONTROLLER_IP=101.6.30.157
 CONTROLLER_PORT=40123
 INTF=-i 1@eth12 -i 2@eth13 -i 3@eth14 -i 4@eth15 
@@ -97,7 +97,6 @@ populate-l3:
 	@cp build/flex4.json $(SWITCH_DIR)
 	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG) 
 	# -- --controller-ip=$(CONTROLLER_IP) --controller-port=$(CONTROLLER_PORT) 
-
 
 
 populate-init:
@@ -251,6 +250,16 @@ run-fattree:
 	@cp build/flex4.json $(SWITCH_DIR)
 	@cp build/flex4.json $(SWITCH_DBG_DIR)
 	@cd tools&&sudo bash fat-tree.sh
+
+run-bmv2-agent:
+	@cd tools&&python bmv2-agent.py
+
+run-demo:
+	@cp test/demo/modules config/modules
+	@make compile
+	@cp build/flex4.json $(SWITCH_DIR)
+	@cp build/flex4.json $(SWITCH_DBG_DIR)
+	@cd tools&&sudo bash demo-topo.sh
 
 populate-fattree:
 	@cp test/fattree/e1 $(SWITCH_DIR)
