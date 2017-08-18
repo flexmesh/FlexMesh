@@ -16,14 +16,12 @@ protoMap = {
 }
 
 featureMap = {
-    'clickp4_mac_learning' : 1,
-    'clickp4_ip_sg' : 2,
-    'clickp4_l2_switch' : 3,
-    'clickp4_l3_switch' : 4,
-    'clickp4_vlan'  : 5,
-    'clickp4_qos'   : 6,
-    'clickp4_nat'   : 7,
-    'clickp4_ip_acl': 8
+    'clickp4_l2_sw' : 1,
+    'clickp4_nat' : 2,
+    'clickp4_vlan' : 3,
+    'clickp4_l3_sw'  : 4,
+    'clickp4_acl'   : 5,
+    'clickp4_qos'   : 6
 }
 
 policies = {}
