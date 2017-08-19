@@ -54,25 +54,24 @@ class MainHandler(tornado.web.RequestHandler):
 
 class StateHandler(tornado.web.RequestHandler):
     def get(self):
-        os.system('ifconfig S1_1 | grep ')
         result = get_dev_stats()
         self.write("%d+%d+%d+%d+%d"%(result[0], result[1], result[2], result[3], result[4]))
 
 def get_dev_stats():
-    os.system('ifconfig S1_1 | grep "RX bytes" >1.txt')
-    os.system('ifconfig S1_2 | grep "RX bytes" >>1.txt')
-    os.system('ifconfig S2_1 | grep "RX bytes" >>1.txt')
-    os.system('ifconfig S2_2 | grep "RX bytes" >>1.txt')
-    os.system('ifconfig S2_3 | grep "RX bytes" >>1.txt')
-    os.system('ifconfig S3_1 | grep "RX bytes" >>1.txt')
-    os.system('ifconfig S3_2 | grep "RX bytes" >>1.txt')
-    os.system('ifconfig S3_3 | grep "RX bytes" >>1.txt')
-    os.system('ifconfig S4_1 | grep "RX bytes" >>1.txt')
-    os.system('ifconfig S4_2 | grep "RX bytes" >>1.txt')
-    os.system('ifconfig S4_3 | grep "RX bytes" >>1.txt')
-    os.system('ifconfig S5_1 | grep "RX bytes" >>1.txt')
-    os.system('ifconfig S5_2 | grep "RX bytes" >>1.txt')
-    os.system('ifconfig S5_3 | grep "RX bytes" >>1.txt')
+    os.system('ifconfig s1_1 | grep "RX bytes" >1.txt')
+    os.system('ifconfig s1_2 | grep "RX bytes" >>1.txt')
+    os.system('ifconfig s2_1 | grep "RX bytes" >>1.txt')
+    os.system('ifconfig s2_2 | grep "RX bytes" >>1.txt')
+    os.system('ifconfig s2_3 | grep "RX bytes" >>1.txt')
+    os.system('ifconfig s3_1 | grep "RX bytes" >>1.txt')
+    os.system('ifconfig s3_2 | grep "RX bytes" >>1.txt')
+    os.system('ifconfig s3_3 | grep "RX bytes" >>1.txt')
+    os.system('ifconfig s4_1 | grep "RX bytes" >>1.txt')
+    os.system('ifconfig s4_2 | grep "RX bytes" >>1.txt')
+    os.system('ifconfig s4_3 | grep "RX bytes" >>1.txt')
+    os.system('ifconfig s5_1 | grep "RX bytes" >>1.txt')
+    os.system('ifconfig s5_2 | grep "RX bytes" >>1.txt')
+    os.system('ifconfig s5_3 | grep "RX bytes" >>1.txt')
     f = open('1.txt')
     stats = []
     for l in f:
