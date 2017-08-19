@@ -21,6 +21,7 @@ LOG='-L off'
 SWITCH_DBG_DIR=/home/netarchlab/bmv2-debug/targets/simple_switch
 
 sudo python demo-link.py
+sudo bash demo-host.sh
 
 cd $SWITCH_DIR
 

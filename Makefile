@@ -252,6 +252,20 @@ populate-linear8:
 	@cd $(SWITCH_DIR)&&./runtime_CLI --thrift-port 9096 <commands
 	@cd $(SWITCH_DIR)&&./runtime_CLI --thrift-port 9097 <commands
 
+
+populate-demo:
+	@cp test/demo/s1commands $(SWITCH_DIR)
+	@cp test/demo/s2commands $(SWITCH_DIR)
+	@cp test/demo/s3commands $(SWITCH_DIR)
+	@cp test/demo/s4commands $(SWITCH_DIR)
+	@cp test/demo/s5commands $(SWITCH_DIR)
+	@cd $(SWITCH_DIR)&&./runtime_CLI <s1commands
+	@cd $(SWITCH_DIR)&&./runtime_CLI --thrift-port 9091 <s2commands
+	@cd $(SWITCH_DIR)&&./runtime_CLI --thrift-port 9092 <s3commands
+	@cd $(SWITCH_DIR)&&./runtime_CLI --thrift-port 9093 <s4commands
+	@cd $(SWITCH_DIR)&&./runtime_CLI --thrift-port 9094 <s5commands
+
+
 run-fattree:
 	@cp test/fattree/modules config/modules
 	@make compile
