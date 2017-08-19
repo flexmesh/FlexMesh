@@ -14,6 +14,14 @@ compile:
 	@python tools/parse_config.py
 	@p4c-bmv2 src/flex4.p4 --json build/flex4.json
 
+compile-demo:
+	@mkdir -p build >>/dev/null
+	@cp test/demo/modules config/modules
+	@python tools/parse_config.py
+	@p4c-bmv2 src/flex4.p4 --json build/flex4.json
+
+
+
 run: compile
 	@cp build/flex4.json $(SWITCH_DIR)
 	@cd $(SWITCH_DIR)&&sudo bash simple_switch flex4.json $(INTF) $(LOG)

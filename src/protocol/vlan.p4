@@ -37,9 +37,15 @@ parser parse_vlan {
     set_metadata(l2_metadata.eth_type, vlan.eth_type);
 #endif
     return select(vlan.eth_type) {
+#ifdef CASE_PARSE_IPv4
         CASE_PARSE_IPv4
+#endif
+#ifdef CASE_PARSE_IPv6
         CASE_PARSE_IPv6
+#endif
+#ifdef CASE_PARSE_ARP
         CASE_PARSE_ARP
+#endif
         default : ingress;
     }
 }
@@ -51,10 +57,14 @@ parser parse_vlan {
 header vlan_t inner_vlan;
 
 parser parse_inner_vlan {
-    parse(inner_vlan);
+    extract(inner_vlan);
      return select(inner_vlan.eth_type) {
-        CASE_PARSE_IPv4
-        CASE_PARSE_IPv6
+#ifdef CASE_PARSE_INNER_IPv4
+        CASE_PARSE_INNER_IPv4
+#endif
+#ifdef CASE_PARSE_INNER_IPv6
+        CASE_PARSE_INNER_IPv6
+#endif
         default : ingress;
     }
 }
