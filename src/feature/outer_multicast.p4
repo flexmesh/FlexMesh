@@ -1,7 +1,7 @@
 /**
  * Outer multicast
  * P4      197
- * Flex4 199
+ * FlexMesh 199
  * Modified 4
  */
 #define MODULE outer_multicast

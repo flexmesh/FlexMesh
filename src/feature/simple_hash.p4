@@ -1,7 +1,7 @@
 /**
  * Hash
  * P4 186
- * Flex4 188
+ * FlexMesh 188
  * Modified 3
  */
 #define MODULE simple_hash

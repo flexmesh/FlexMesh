@@ -1,6 +1,6 @@
 /**
  * P4 492
- * Flex4 494
+ * FlexMesh 494
  * 2 + 
  */
 #define MODULE init_endpoint

@@ -1,6 +1,6 @@
 /**
  * P4 97
- * Flex4 99
+ * FlexMesh 99
  * Modified 10
  */
 #define MODULE mac

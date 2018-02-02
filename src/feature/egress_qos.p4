@@ -1,6 +1,6 @@
 /**
  * P4 39
- * Flex4 41
+ * FlexMesh 41
  * Modified 2
  */
 #define MODULE egress_qos

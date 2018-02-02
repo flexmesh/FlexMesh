@@ -1,4 +1,4 @@
-# How to write and run a sample module for Flex4
+# How to write and run a sample module for FlexMesh
 
 ## Create your module source file in the [module](.) folder
 
@@ -39,7 +39,7 @@ MODULE_INGRESS(sample) {
 $ make compile
 ```
 
-## Run Flex4 with the sample module
+## Run FlexMesh with the sample module
 ```bash
 $ make run
 ```

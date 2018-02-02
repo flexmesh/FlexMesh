@@ -1,5 +1,5 @@
 /**
- * A sample module for Flex4
+ * A sample module for FlexMesh
  */
 
 #ifndef MODULE

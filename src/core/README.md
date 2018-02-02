@@ -1,4 +1,4 @@
-# Core of Flex4
+# Core of FlexMesh
 
 ## Functions
 1. Define Special managmenet components

@@ -1,6 +1,6 @@
 /**
  * P4 65
- * Flex4 67
+ * FlexMesh 67
  * Modified 5
  */
 #define MODULE ingress_qos

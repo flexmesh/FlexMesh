@@ -1,6 +1,6 @@
 /**
  * P4 47
- * Flex4 49+1
+ * FlexMesh 49+1
  * Modified 3+2+4
  */
 #define MODULE ip_sg

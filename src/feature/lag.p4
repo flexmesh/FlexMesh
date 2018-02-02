@@ -1,6 +1,6 @@
 /**
  * P4 57
- * Flex4 59
+ * FlexMesh 59
  * Modified 7
  */
 #define MODULE lag

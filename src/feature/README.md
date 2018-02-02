@@ -1,6 +1,6 @@
-# Modules of Flex4
+# Modules of FlexMesh
 
-We have developed tens of modules for Flex4. Some of them are ported from the switch repository. Some of them are newly added by us. And some of them are ported from the switch repository of P4.
+We have developed tens of modules for FlexMesh. Some of them are ported from the switch repository. Some of them are newly added by us. And some of them are ported from the switch repository of P4.
 
 
 Tested modules :
@@ -85,7 +85,7 @@ Working on:
 
 ## Sample
 
-A sample module for Flex4.
+A sample module for FlexMesh.
 
 ## L2 switch
 

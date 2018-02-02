@@ -1,6 +1,6 @@
 /**
  * P4 35 
- * Flex4 37
+ * FlexMesh 37
  * Modified 3
  */
 #define MODULE mac_learning

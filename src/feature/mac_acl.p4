@@ -1,7 +1,7 @@
 /**
  * L2 ACL
  * P4 30
- * Flex4 31
+ * FlexMesh 31
  * Modified 8
  */
 #define MODULE mac_acl 

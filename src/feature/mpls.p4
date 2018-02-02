@@ -1,6 +1,6 @@
 /**
  * P4 97
- * Flex4 99
+ * FlexMesh 99
  * Modified 3
  */
 #define MODULE mpls

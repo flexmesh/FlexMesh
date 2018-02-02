@@ -30,7 +30,7 @@ cd $SWITCH_DIR
 for i in `seq 1`
 do
 {
-    sudo ./simple_switch flex4.json $INTF_S1_1 $INTF_S1_2 $LOG --thrift-port 9090 --device-id 1
+    sudo ./simple_switch FlexMesh.json $INTF_S1_1 $INTF_S1_2 $LOG --thrift-port 9090 --device-id 1
 } &
 done
 
@@ -38,7 +38,7 @@ done
 for i in `seq 1`
 do
 {
-    sudo ./simple_switch flex4.json $INTF_S2_1 $INTF_S2_2 $INTF_S2_3 $LOG --thrift-port 9091 --device-id 2
+    sudo ./simple_switch FlexMesh.json $INTF_S2_1 $INTF_S2_2 $INTF_S2_3 $LOG --thrift-port 9091 --device-id 2
 } &
 done
 
@@ -46,7 +46,7 @@ done
 for i in `seq 1`
 do
 {
-    sudo ./simple_switch flex4.json $INTF_S3_1 $INTF_S3_2 $INTF_S3_3 $LOG --thrift-port 9092 --device-id 3
+    sudo ./simple_switch FlexMesh.json $INTF_S3_1 $INTF_S3_2 $INTF_S3_3 $LOG --thrift-port 9092 --device-id 3
 } &
 done
 
@@ -54,11 +54,11 @@ done
 for i in `seq 1`
 do
 {
-    sudo ./simple_switch flex4.json $INTF_S4_1 $INTF_S4_2 $INTF_S4_3 $LOG --thrift-port 9093 --device-id 4
-    #sudo $SWITCH_DBG_DIR/simple_switch flex4.json $INTF_E4_1 $INTF_E4_2 $INTF_E4_3 --log-console --thrift-port 9093
+    sudo ./simple_switch FlexMesh.json $INTF_S4_1 $INTF_S4_2 $INTF_S4_3 $LOG --thrift-port 9093 --device-id 4
+    #sudo $SWITCH_DBG_DIR/simple_switch FlexMesh.json $INTF_E4_1 $INTF_E4_2 $INTF_E4_3 --log-console --thrift-port 9093
 } &
 done
 
 # A1
 
-sudo ./simple_switch flex4.json $INTF_S5_1 $INTF_S5_2 $INTF_S5_3 $LOG --thrift-port 9094 --device-id 5
+sudo ./simple_switch FlexMesh.json $INTF_S5_1 $INTF_S5_2 $INTF_S5_3 $LOG --thrift-port 9094 --device-id 5

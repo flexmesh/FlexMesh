@@ -1,6 +1,6 @@
 /**
  * P4 59
- * Flex4 61
+ * FlexMesh 61
  * Modified 4
  */
 #define MODULE INIT_OUTER_ENCAP 

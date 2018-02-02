@@ -5,7 +5,7 @@ def parse_modules():
     module = open('src/core/module.p4', 'w')
     module.write('#ifndef __CLICK_MODULE__\n')
     module.write('#define __CLICK_MODULE__\n\n')
-    print 'Compiling modules into Flex4:'
+    print 'Compiling modules into FlexMesh:'
     for m in config.readlines():
         m = m.strip('\n').split(':')[1]
         if not os.path.exists('src/feature/%s.p4'%(m)):

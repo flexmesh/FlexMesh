@@ -1,5 +1,5 @@
 //-------------------------
-// Flex4 Main File
+// FlexMesh Main File
 //-------------------------
 
 #include "core/config.p4"

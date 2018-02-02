@@ -1,6 +1,6 @@
 /**
  * P4 28 
- * Flex4 30
+ * FlexMesh 30
  * Modified 3
  */
 #define MODULE spanning_tree
